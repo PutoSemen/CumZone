@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family:Helvetica;
+        }
+
+        body{
+            position:relative;
+            top:0;
+            left:0;
+            width:100vw;
+            height:100vh;
+            background-image: url("https://static-ca-cdn.eporner.com/gallery/jN/eV/XJbMSdreVjN/275247-bouncing-tits.gif");
+            background-repeat:no-repeat;
+            background-size:cover;
+            background-position-x: 25%;
+        }
+
+        .op{
+            position:absolute;
+            width:100%;
+            height:100%;
+            top:0;
+            left:0;
+            background-color: rgba(000, 000, 000, 0.3);
+        }
+
+        .sBar{
+            position:relative;
+            width:80%;
+            height:40px;
+            left:10%;
+            top:35%;
+            transform: translateY(-50%);
+        }
+
+        .sBar input{
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            border-radius:50px;
+            border:1px solid white;
+            background-color:rgba(0, 0, 0, 0.2);
+            color:white;
+            padding-left:15px;
+        }
+
+        .sBar input::placeholder{
+            color:white;
+        }
+
+        .sBar input:focus{
+            outline:none;
+        }
+
+        .sBar button{
+            position:absolute;
+            right:0;
+            top:0;
+            width:50px;
+            height:100%;
+            border-radius:50px;
+            border:1px solid white;
+        }
+
+        button:focus{
+            outline:none;
+        }
+
+        .sContainer{
+            position:absolute;
+            width:80%;
+            height:auto;
+            left:10%;
+            top:40%;
+            display:flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items:center;
+        }
+
+        .sContainer button{
+            position:relative;
+            width:25%;
+            height:30px;
+            color:white;
+            border-radius: 5px;
+            border:1px solid white;
+            background-color: rgba(000, 000, 000, 0.3);
+        }
+
+    </style>
+    <title>CumZone</title>
+</head>
+<body>
+    <div class="op"></div>
+    <div class="sBar"><input type="search" placeholder="Search"><button class="enter"><i class="material-icons">search</i></button></div>
+    <div class="sContainer">
+        <button value="PH">PornHub</button>
+        <button value="YP">YouPorn</button>
+        <button value="XV">XVideos</button>
+    </div>
+</body>
+
+<script>
+
+    var btns = document.querySelectorAll(".sContainer button");
+    btns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            var inputVal = document.querySelector(".sBar input").value = btn.value + ": ";
+        });
+    });
+
+    var searchBTN = document.querySelector(".enter");
+    searchBTN.addEventListener("click", () => {
+        var input = String(document.querySelector(".sBar input").value);
+        var s = input.substring(0,2);
+        console.log(s);
+        switch(s){
+            case "PH":
+                var base = "https://www.pornhub.com/video/search?search=";
+                break;
+            case "YP":
+                var base = "https://www.youporn.com/search/?search-btn=&query=";
+                break;
+            case "XV":
+                var base = "https://www.xvideos.com/?k=";
+            default:
+                var base = "https://www.google.com/search?q="
+        }
+        
+        var url = base + encodeURI(input.substring(4));
+        window.location = url;
+
+    });
+
+</script>
+
+</html>
