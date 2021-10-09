@@ -155,10 +155,12 @@
             default:
                 var base = "https://www.google.com/search?q="
         }
-        
-        var url = base + encodeURI(input.substring(4));
-        window.location = url;
-
+        if(!input){
+            return;
+        }else{
+            var url = base + encodeURI(input.substring(4));
+            window.location = url;
+        }
     });
 
 </script>
